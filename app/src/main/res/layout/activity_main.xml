@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.6">
+
+        <ImageView
+            android:id="@+id/img_logo_main"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_margin="10dp"
+            android:src="@drawable/logo"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <ImageView
+            android:id="@+id/img_language_main"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/language"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="30dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="30dp" />
+
+        <ImageView
+            android:id="@+id/img_picture_main"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:layout_margin="20dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerInParent="true"
+            android:src="@drawable/picture"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.4">
+
+        <TextView
+            android:id="@+id/tv_welcomeTitle_main"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Welcome to Gojek!"
+            android:textColor="@color/black"
+            android:fontFamily="@font/poppinsmedium"
+            android:textStyle="bold"
+            android:textSize="24sp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginStart="12dp" />
+
+        <TextView
+            android:id="@+id/tv_welcomeText_main"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_welcomeTitle_main"
+            android:text="Your go-to app for a hassle-free life. We're here to help all your needs, anytime, and anywhere."
+            android:textColor="@color/black"
+            android:fontFamily="@font/poppinsregular"
+            android:textSize="14sp"
+            android:layout_marginHorizontal="12dp"/>
+
+        <com.google.android.gms.common.SignInButton
+            android:id="@+id/btn_google_main"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/linear_buttons"
+            android:layout_margin="12dp"/>
+
+        <LinearLayout
+            android:id="@+id/linear_buttons"
+            android:layout_above="@+id/tv_termsAndPolicy_main"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_centerInParent="true"
+            android:weightSum="1"
+            android:layout_marginHorizontal="12dp">
+
+            <Button
+                android:id="@+id/btn_login_main"
+                android:layout_width="0dp"
+                android:layout_weight="0.5"
+                android:layout_height="wrap_content"
+                android:text="Log in"
+                android:textAllCaps="false"
+                android:fontFamily="@font/poppinsmedium"
+                android:background="@drawable/rounded_button"
+                android:layout_marginRight="20dp"
+                android:layout_marginEnd="20dp" />
+
+            <Button
+                android:id="@+id/btn_register_main"
+                android:layout_width="0dp"
+                android:layout_weight="0.5"
+                android:layout_height="wrap_content"
+                android:text="Register"
+                android:textAllCaps="false"
+                android:fontFamily="@font/poppinsmedium"
+                android:background="@drawable/rounded_button" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_termsAndPolicy_main"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:text="By logging in or registering, you agree to our Terms of Service and Privacy Policy"
+            android:textColor="@color/black"
+            android:fontFamily="@font/poppinsregular"
+            android:textSize="14sp"
+            android:layout_margin="12dp"/>
+    </RelativeLayout>
+
+</LinearLayout>

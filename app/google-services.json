@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "41593966812",
+    "project_id": "linearlayout-efbe6",
+    "storage_bucket": "linearlayout-efbe6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:41593966812:android:f3f89a40369e98476d2419",
+        "android_client_info": {
+          "package_name": "com.example.linearlayout"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "41593966812-5h00aqhijd6bqtk8dp061hromk8u3v2h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCvZq3xK-MMPpb_8zz8o6cWDRYW3XEC8Qo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "41593966812-5h00aqhijd6bqtk8dp061hromk8u3v2h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
