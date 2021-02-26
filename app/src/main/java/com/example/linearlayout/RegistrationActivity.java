@@ -71,6 +71,7 @@ public class RegistrationActivity extends AppCompatActivity {
     private void registerUser() {
         String email = txt_email.getText().toString();
         String password = txt_password.getText().toString();
+
         if (!Patterns.EMAIL_ADDRESS.matcher(email).matches() && password.isEmpty()) {
             layout_email.setError("Invalid Email");
             layout_password.setError("Invalid Password");
@@ -86,6 +87,8 @@ public class RegistrationActivity extends AppCompatActivity {
             progressDialog.setMessage("We're registering you...");
             progressDialog.setCancelable(false);
             progressDialog.show();
+
+            // Create an email and password based account
             firebaseAuth.createUserWithEmailAndPassword(email, password)
                     .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                         @Override
@@ -102,12 +105,12 @@ public class RegistrationActivity extends AppCompatActivity {
                                 // Clearing user
                                 firebaseAuth.signOut();
                             } else {
-                                Toast.makeText(getApplicationContext(), "Sorry, we're not able to registered you", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(), "Sorry, we are not able to register you", Toast.LENGTH_SHORT).show();
                             }
                             progressDialog.dismiss();
-                            txt_password.setText("");
+                            txt_name.setText("");
                             txt_email.setText("");
-                            txt_name.setError("");
+                            txt_password.setText("");
                         }
                     }).addOnFailureListener(new OnFailureListener() {
                 @Override

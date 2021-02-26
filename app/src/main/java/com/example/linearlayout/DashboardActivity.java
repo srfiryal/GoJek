@@ -22,18 +22,18 @@ public class DashboardActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
 
+        btn_logout = findViewById(R.id.btn_logout_dashboard);
+        tv_user = findViewById(R.id.tv_welcomeTitle_dashboard);
         firebaseAuth = FirebaseAuth.getInstance();
         FirebaseUser currentUser = firebaseAuth.getCurrentUser();
+
         if (currentUser == null) {
             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(intent);
             finish();
         } else {
-            tv_user = findViewById(R.id.tv_welcomeTitle_dashboard);
-            tv_user.setText("Welcome, "+currentUser.getDisplayName());
+            tv_user.setText("Welcome, " + currentUser.getDisplayName());
         }
-
-        btn_logout = findViewById(R.id.btn_logout_dashboard);
 
         btn_logout.setOnClickListener(new View.OnClickListener() {
             @Override

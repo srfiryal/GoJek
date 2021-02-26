@@ -43,8 +43,8 @@ public class LoginActivity extends AppCompatActivity {
         layout_email = findViewById(R.id.layout_email_login);
         layout_password = findViewById(R.id.layout_password_login);
         firebaseAuth = FirebaseAuth.getInstance();
-
         FirebaseUser currentUser = firebaseAuth.getCurrentUser();
+
         if (currentUser != null) {
             Intent intent = new Intent(getApplicationContext(), DashboardActivity.class);
             startActivity(intent);
@@ -76,6 +76,7 @@ public class LoginActivity extends AppCompatActivity {
     private void loginUser() {
         String email = txt_email.getText().toString();
         String password = txt_password.getText().toString();
+
         if (password.isEmpty() && !Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             layout_email.setError("Invalid email");
             layout_password.setError("Invalid password");
@@ -91,6 +92,8 @@ public class LoginActivity extends AppCompatActivity {
             progressDialog.setMessage("Signing you in...");
             progressDialog.setCancelable(false);
             progressDialog.show();
+
+            // Log in with an email and password based account
             firebaseAuth.signInWithEmailAndPassword(email, password)
                     .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
