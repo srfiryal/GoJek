@@ -72,12 +72,15 @@
             android:textSize="14sp"
             android:layout_marginHorizontal="12dp"/>
 
-        <com.google.android.gms.common.SignInButton
+        <com.shobhitpuri.custombuttons.GoogleSignInButton
             android:id="@+id/btn_google_main"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_above="@id/linear_buttons"
-            android:layout_margin="12dp"/>
+            android:layout_centerInParent="true"
+            android:text="@string/google_sign_up"
+            app:isLightTheme="true"
+            android:layout_above="@+id/linear_buttons"
+            android:layout_margin="20px"/>
 
         <LinearLayout
             android:id="@+id/linear_buttons"

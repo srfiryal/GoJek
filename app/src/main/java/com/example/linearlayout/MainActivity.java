@@ -23,12 +23,13 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.shobhitpuri.custombuttons.GoogleSignInButton;
 
 public class MainActivity extends AppCompatActivity {
 
     Button btn_login, btn_register;
     GoogleSignInClient mGoogleSignInClient;
-    SignInButton btn_google;
+    GoogleSignInButton btn_google;
     final int RC_SIGN_IN = 101;
     FirebaseAuth firebaseAuth;
     FirebaseUser currentUser;
