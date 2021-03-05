@@ -27,6 +27,7 @@ public class LoginActivity extends AppCompatActivity {
     ImageView img_backButton, img_infoButton, img_arrowButton;
     FirebaseAuth firebaseAuth;
     ProgressDialog progressDialog;
+    Preferences preferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +35,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         progressDialog = new ProgressDialog(this);
+        preferences = new Preferences();
 
         txt_email = findViewById(R.id.txt_email_login);
         txt_password = findViewById(R.id.txt_password_login);
@@ -68,8 +70,6 @@ public class LoginActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-        startActivity(intent);
         finish();
     }
 
@@ -100,7 +100,8 @@ public class LoginActivity extends AppCompatActivity {
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             progressDialog.dismiss();
                             if (task.isSuccessful()) {
-//                                preferences.setStatus(getApplicationContext(), true);
+                                preferences.setStatus(getApplicationContext(), true);
+                                preferences.setEmail(getApplicationContext(), email);
                                 Intent intent = new Intent(getApplicationContext(), DashboardActivity.class);
                                 startActivity(intent);
                                 finish();

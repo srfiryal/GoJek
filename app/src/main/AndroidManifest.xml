@@ -21,6 +21,7 @@
         <activity android:name=".DashboardActivity" />
         <activity android:name=".RegistrationActivity" />
         <activity android:name=".MainActivity" />
+        <activity android:name=".ControlClass" />
         <activity android:name=".LoginActivity" />
     </application>
 

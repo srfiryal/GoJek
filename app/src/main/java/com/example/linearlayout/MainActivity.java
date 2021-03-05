@@ -14,7 +14,6 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
-import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -59,19 +58,18 @@ public class MainActivity extends AppCompatActivity {
 
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
 
+        btn_google.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                signIn();
+            }
+        });
+
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                 startActivity(intent);
-                finish();
-            }
-        });
-
-        btn_google.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                signIn();
             }
         });
 
@@ -80,7 +78,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), RegistrationActivity.class);
                 startActivity(intent);
-                finish();
             }
         });
     }
@@ -99,7 +96,6 @@ public class MainActivity extends AppCompatActivity {
             Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
             try {
                 GoogleSignInAccount account = task.getResult(ApiException.class);
-                Log.d("TAG", "firebaseAuthWithGoogle:" + account.getId());
                 firebaseAuthWithGoogle(account.getIdToken());
             } catch (ApiException e) {
                 Log.w("TAG", "Google sign in failed", e);
@@ -127,6 +123,9 @@ public class MainActivity extends AppCompatActivity {
     private void checkGoogleUser() {
         FirebaseUser currentUser = firebaseAuth.getCurrentUser();
         if (currentUser != null) {
+            Preferences preferences = new Preferences();
+            preferences.setStatus(getApplicationContext(), true);
+            preferences.setEmail(getApplicationContext(), currentUser.getEmail());
             startActivity(new Intent(getApplicationContext(), DashboardActivity.class));
             finish();
         }
