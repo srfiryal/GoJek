@@ -31,7 +31,6 @@ public class MainActivity extends AppCompatActivity {
     GoogleSignInButton btn_google;
     final int RC_SIGN_IN = 101;
     FirebaseAuth firebaseAuth;
-    FirebaseUser currentUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,13 +41,6 @@ public class MainActivity extends AppCompatActivity {
         btn_register = findViewById(R.id.btn_register_main);
         btn_google = findViewById(R.id.btn_google_main);
         firebaseAuth = FirebaseAuth.getInstance();
-        currentUser = firebaseAuth.getCurrentUser();
-
-        if (currentUser != null) {
-            Intent intent = new Intent(getApplicationContext(), DashboardActivity.class);
-            startActivity(intent);
-            finish();
-        }
 
         // Configure Google Sign In
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)

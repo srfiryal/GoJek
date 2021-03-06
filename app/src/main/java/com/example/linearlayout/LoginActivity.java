@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.ImageView;
@@ -45,12 +46,10 @@ public class LoginActivity extends AppCompatActivity {
         layout_email = findViewById(R.id.layout_email_login);
         layout_password = findViewById(R.id.layout_password_login);
         firebaseAuth = FirebaseAuth.getInstance();
-        FirebaseUser currentUser = firebaseAuth.getCurrentUser();
 
-        if (currentUser != null) {
-            Intent intent = new Intent(getApplicationContext(), DashboardActivity.class);
-            startActivity(intent);
-            finish();
+        if (preferences.getStatus(getApplicationContext())) {
+            startActivity(new Intent(getApplicationContext(), DashboardActivity.class));
+            Log.d("Dashboard", "yes");
         }
 
         img_backButton.setOnClickListener(new View.OnClickListener() {
