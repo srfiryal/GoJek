@@ -18,7 +18,7 @@ public class SplashActivity extends AppCompatActivity {
                 try {
                     // Thread will sleep for 3 seconds
                     sleep(3 * 1000);
-                    Intent i = new Intent(getBaseContext(), MainActivity.class);
+                    Intent i = new Intent(getBaseContext(), LandingPageActivity.class);
                     startActivity(i);
                     finish();
                 } catch (Exception e) {

@@ -28,7 +28,7 @@ public class DashboardActivity extends AppCompatActivity {
         FirebaseUser currentUser = firebaseAuth.getCurrentUser();
 
         if (currentUser == null) {
-            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            Intent intent = new Intent(getApplicationContext(), LandingPageActivity.class);
             startActivity(intent);
             finish();
         } else {
@@ -47,7 +47,7 @@ public class DashboardActivity extends AppCompatActivity {
     private void checkUser() {
         FirebaseUser currentUser = firebaseAuth.getCurrentUser();
         if (currentUser == null) {
-            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            Intent intent = new Intent(getApplicationContext(), LandingPageActivity.class);
             startActivity(intent);
             finish();
         }

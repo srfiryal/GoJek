@@ -43,13 +43,6 @@ public class LoginActivity extends AppCompatActivity {
         layout_email = findViewById(R.id.layout_email_login);
         layout_password = findViewById(R.id.layout_password_login);
         firebaseAuth = FirebaseAuth.getInstance();
-        FirebaseUser currentUser = firebaseAuth.getCurrentUser();
-
-        if (currentUser != null) {
-            Intent intent = new Intent(getApplicationContext(), DashboardActivity.class);
-            startActivity(intent);
-            finish();
-        }
 
         img_backButton.setOnClickListener(new View.OnClickListener() {
             @Override
