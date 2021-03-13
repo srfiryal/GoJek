@@ -9,7 +9,6 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 public class DashboardActivity extends AppCompatActivity {
 
@@ -28,7 +27,7 @@ public class DashboardActivity extends AppCompatActivity {
         tv_user = findViewById(R.id.tv_welcomeTitle_dashboard);
 
         if (!preferences.getStatus(getApplicationContext())) {
-            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            Intent intent = new Intent(getApplicationContext(), LandingPage.class);
             startActivity(intent);
             finish();
         } else {
@@ -46,9 +45,8 @@ public class DashboardActivity extends AppCompatActivity {
     }
 
     private void checkUser() {
-
         if (!preferences.getStatus(getApplicationContext())) {
-            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            Intent intent = new Intent(getApplicationContext(), LandingPage.class);
             startActivity(intent);
             finish();
         }

@@ -47,11 +47,6 @@ public class LoginActivity extends AppCompatActivity {
         layout_password = findViewById(R.id.layout_password_login);
         firebaseAuth = FirebaseAuth.getInstance();
 
-        if (preferences.getStatus(getApplicationContext())) {
-            startActivity(new Intent(getApplicationContext(), DashboardActivity.class));
-            Log.d("Dashboard", "yes");
-        }
-
         img_backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

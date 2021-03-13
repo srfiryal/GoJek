@@ -21,7 +21,7 @@ public class ControlClass extends AppCompatActivity {
             startActivity(new Intent(getApplicationContext(), DashboardActivity.class));
             Log.d("Dashboard", "yes");
         } else {
-            startActivity(new Intent(getApplicationContext(), MainActivity.class));
+            startActivity(new Intent(getApplicationContext(), LandingPage.class));
             Log.d("Login", "yes");
         }
         finish();
