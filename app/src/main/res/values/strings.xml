@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Gojek</string>
+    <string name="google_sign_up">Continue with Google</string>
 </resources>

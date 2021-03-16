@@ -67,7 +67,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/tv_welcomeTitle_main"
             android:text="Your go-to app for a hassle-free life. We're here to help all your needs, anytime, and anywhere."
-            android:textColor="@color/black"
+            android:textColor="@color/grey"
             android:fontFamily="@font/poppinsregular"
             android:textSize="14sp"
             android:layout_marginHorizontal="12dp"/>
@@ -121,9 +121,9 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:text="By logging in or registering, you agree to our Terms of Service and Privacy Policy"
-            android:textColor="@color/black"
+            android:textColor="@color/grey"
             android:fontFamily="@font/poppinsregular"
-            android:textSize="14sp"
+            android:textSize="12sp"
             android:layout_margin="12dp"/>
     </RelativeLayout>
 
