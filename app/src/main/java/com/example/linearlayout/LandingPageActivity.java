@@ -2,8 +2,15 @@ package com.example.linearlayout;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.PagerSnapHelper;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.SnapHelper;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -24,6 +31,10 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 import com.shobhitpuri.custombuttons.GoogleSignInButton;
 
+import java.util.ArrayList;
+
+import ru.tinkoff.scrollingpagerindicator.ScrollingPagerIndicator;
+
 public class LandingPageActivity extends AppCompatActivity {
 
     Button btn_login, btn_register;
@@ -32,6 +43,9 @@ public class LandingPageActivity extends AppCompatActivity {
     final int RC_SIGN_IN = 101;
     FirebaseAuth firebaseAuth;
     FirebaseUser currentUser;
+    RecyclerView recyclerView;
+    ListAdapter adapter;
+    ArrayList<ListModel> arrayList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,12 +57,9 @@ public class LandingPageActivity extends AppCompatActivity {
         btn_google = findViewById(R.id.btn_google_main);
         firebaseAuth = FirebaseAuth.getInstance();
         currentUser = firebaseAuth.getCurrentUser();
+        recyclerView = findViewById(R.id.rv_landing);
 
-        if (currentUser != null) {
-            Intent intent = new Intent(getApplicationContext(), DashboardActivity.class);
-            startActivity(intent);
-            finish();
-        }
+        addData();
 
         // Configure Google Sign In
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -133,5 +144,30 @@ public class LandingPageActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         checkGoogleUser();
+    }
+
+    private void addData() {
+        arrayList = new ArrayList<>();
+        arrayList.add(new ListModel(R.drawable.landingimage1, "Welcome to Gojek!", "Your go-to app for a hassle-free life. We're here to help all your needs, anytime and anywhere."));
+        arrayList.add(new ListModel(R.drawable.landingimage2, "Transport & logistics", "Daily commute and goods delivery made easy."));
+        arrayList.add(new ListModel(R.drawable.landingimage3, "Order food & groceries", "Either needs or cravings, we got you covered."));
+        arrayList.add(new ListModel(R.drawable.landingimage4, "Payment", "Pay utility bills, phone credit, and transfer money from your phone."));
+        arrayList.add(new ListModel(R.drawable.landingimage5, "News & entertainment", "Get updates, play games, and stream favorite shows, all in your Gojek app."));
+        arrayList.add(new ListModel(R.drawable.landingimage6, "Professional services", "Consult with trusted doctors and buy medicine from home."));
+
+        adapter = new ListAdapter(getApplicationContext(), arrayList);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setItemViewCacheSize(20);
+        recyclerView.setDrawingCacheEnabled(true);
+        recyclerView.setDrawingCacheQuality(View.DRAWING_CACHE_QUALITY_HIGH);
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setAdapter(adapter);
+
+        SnapHelper snapHelper = new PagerSnapHelper();
+        snapHelper.attachToRecyclerView(recyclerView);
+
+        ScrollingPagerIndicator recyclerIndicator = findViewById(R.id.indicator);
+        recyclerIndicator.attachToRecyclerView(recyclerView);
     }
 }

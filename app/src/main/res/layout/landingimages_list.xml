@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    app:cardCornerRadius="6dp"
+    app:cardUseCompatPadding="true">
+
+    <RelativeLayout
+        android:id="@+id/rv_layout_list"
+        android:layout_width="match_parent"
+        android:layout_height="350dp">
+
+        <ImageView
+            android:id="@+id/img_list"
+            android:layout_width="match_parent"
+            android:layout_height="230dp"
+            android:src="@drawable/landingimage1"
+            android:layout_marginBottom="30dp"/>
+
+        <TextView
+            android:id="@+id/tv_title_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Title"
+            android:textColor="@color/black"
+            android:fontFamily="@font/poppinsmedium"
+            android:textStyle="bold"
+            android:textSize="24sp"
+            android:layout_below="@id/img_list"
+            android:layout_marginLeft="12dp"
+            android:layout_marginStart="12dp" />
+
+        <TextView
+            android:id="@+id/tv_desc_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Description"
+            android:textColor="@color/grey"
+            android:fontFamily="@font/poppinsregular"
+            android:textSize="14sp"
+            android:layout_below="@id/tv_title_list"
+            android:layout_marginHorizontal="12dp"/>
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>
