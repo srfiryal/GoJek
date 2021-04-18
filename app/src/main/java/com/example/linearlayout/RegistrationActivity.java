@@ -82,6 +82,7 @@ public class RegistrationActivity extends AppCompatActivity {
         } else {
             layout_email.setError(null);
             layout_password.setError(null);
+
             progressDialog.setMessage("We're registering you...");
             progressDialog.setCancelable(false);
             progressDialog.show();

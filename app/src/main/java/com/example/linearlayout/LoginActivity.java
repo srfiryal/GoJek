@@ -96,6 +96,7 @@ public class LoginActivity extends AppCompatActivity {
                             if (task.isSuccessful()) {
                                 preferences.setStatus(getApplicationContext(), true);
                                 preferences.setEmail(getApplicationContext(), email);
+
                                 Intent intent = new Intent(getApplicationContext(), DashboardActivity.class);
                                 startActivity(intent);
                                 finish();
